@@ -1,0 +1,73 @@
+//=============================================================================
+// Projet : Locker
+// Fichier : locker.rc
+//
+//=============================================================================
+
+#include "ressources.h"
+
+
+//=============================================================================
+//                          Icones de l'application
+//=============================================================================
+
+IDI_ICONE1 ICON DISCARDABLE "icones/locker.ico"
+
+IDI_ICONE2 ICON DISCARDABLE "icones/password.ico"
+
+IDI_ICONE3 ICON DISCARDABLE "icones/perror.ico"
+
+IDI_ICONE4 ICON DISCARDABLE "icones/fopen.ico"
+
+IDI_ICONE5 ICON DISCARDABLE "icones/fclose.ico"
+
+//=============================================================================
+//                              Style XP
+//=============================================================================
+
+1 24 "manifest.xml"
+
+//=============================================================================
+//                        DialogBox de mot de passe
+//=============================================================================
+
+PASSWORD DIALOG 60, 60, 160, 80
+CAPTION NOM_APP
+STYLE WS_POPUP | WS_BORDER | WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU | WS_OVERLAPPED | WS_VISIBLE
+BEGIN
+     ICON IDI_ICONE2, -1, 15, 18, 32, 32
+     LTEXT "Mot de passe :", -1, 55, 20, 50, 10
+     EDITTEXT IDE_PASSWORD, 35, 35, 90, 12, ES_PASSWORD
+     DEFPUSHBUTTON "Ok", IDOK, 55, 55, 50, 12
+END
+
+//=============================================================================
+//                   DialogBox de mot de passe incorrect
+//=============================================================================
+
+WRONGPASSWORD DIALOG 60, 60, 140, 70
+CAPTION NOM_APP
+STYLE WS_POPUP | WS_BORDER | WS_CAPTION | WS_SYSMENU | WS_OVERLAPPED | WS_VISIBLE
+BEGIN
+     ICON IDI_ICONE3, -1, 12, 15, 32, 32
+     LTEXT "Mot de passe incorrect !", -1, 35, 20, 80, 10
+     DEFPUSHBUTTON "Ok", IDOK, 45, 45, 50, 12
+END
+
+//=============================================================================
+//                        DialogBox de configuration
+//=============================================================================
+
+CONFIG DIALOGEX 60, 60, 200, 95
+CAPTION NOM_APP
+FONT 10, "tahoma", 700, 0
+STYLE WS_POPUP | WS_BORDER | WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU | WS_OVERLAPPED | WS_VISIBLE
+BEGIN
+     GROUPBOX " Configuration : ", -1, 5, 5, 190, 70
+     ICON IDI_ICONE4, -1, 15, 20, 32, 32
+     AUTORADIOBUTTON " Déverouiller les fichiers", RB_UNLOCK_DOSSIER, 40, 25, 90, 10
+     AUTORADIOBUTTON " Vérouiller les fichiers", RB_LOCK_DOSSIER, 40, 50, 90, 10
+     ICON IDI_ICONE5, -1, 18, 45, 32, 32
+     PUSHBUTTON "A Propos", BT_APROPOS, 5, 80, 90, 12
+     DEFPUSHBUTTON "Quitter", BT_QUITTER, 105, 80, 90, 12
+END
